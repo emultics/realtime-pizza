@@ -4,7 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon server.js"
+    "dev": "nodemon server",
+    "start": "node server",
+    "mix": "npx mix",
+    "watch": "npm run mix watch"
   },
   "keywords": [],
   "author": "",
@@ -12,12 +15,14 @@
   "dependencies": {
     "ejs": "^3.1.8",
     "express": "^4.18.1",
-    "express-ejs-layouts": "^2.5.1"
+    "express-ejs-layouts": "^2.5.1",
+    "noty": "^3.2.0-beta-deprecated"
   },
   "devDependencies": {
-
-    "nodemon": "^2.0.19",
+    "cross-env": "^7.0.3",
     "laravel-mix": "^6.0.49",
+    "nodemon": "^2.0.19",
+    "resolve-url-loader": "^5.0.0",
     "sass": "^1.52.3",
     "sass-loader": "^12.6.0"
   }
