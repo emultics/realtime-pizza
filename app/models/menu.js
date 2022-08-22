@@ -1,0 +1,36 @@
+const{model,Schema}=require('mongoose');
+const menuSchema = new Schema({
+    name:{
+        type:String,
+        required:true
+    },
+    image:{
+        type:String,
+        required:true
+    },
+    description:{
+        type:String,
+        required:true
+    },
+    isActive:{
+        type:Boolean,
+        default:true
+    },
+    price:{
+        type:String,
+        default:'0.0',
+        required:true
+    },
+    size:{
+        type:String,
+        required:true
+    },
+    isSizeMatter:{
+        type:Boolean,
+        required:true
+    },
+    rating:{
+        type:String
+    }
+});
+module.exports=model('Menu',menuSchema);
