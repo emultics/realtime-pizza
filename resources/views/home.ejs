@@ -1,2 +1,36 @@
-<h1>HELLO SERVER</h1>
-<h2>hiiiiiiiiiiiiiiii</h2>
+
+    <div class="hero py-16">
+        <div class="container mx-auto flex items-center justify-between">
+            <div class="left w-1/2">
+                <h3 class="pb-11"><i>Are you Hungry?</i></h3>
+                <h1 class="pb-11 text-8xl"><b>Don't Wait!</b></h1>
+                <button class="text-white font-bold py-2 px-6 mt-4 btn-primary rounded-full" >Order Now</button>
+            </div>
+            <div class="right w-1/2">
+                <img src="/img/hero-pizza.png" alt="">
+            </div>
+
+        </div>
+    </div>
+    <div class="menu container mx-auto py-8">
+        <h1 class="mb-8 font-bold text-xl">All Pizzas</h1>
+                <div class="grid grid-cols-4 col-gap-12 gap-y-16">
+                    <%pizzas.forEach((pizza)=>{%>
+                        <div class="w-64">
+                            <img class="h-40 mb-4 mx-auto" src="/img/<%=pizza.image%>" alt="">
+                                <div class="text-center">
+                                    <h2 class="mb-4 text-xl"><%=pizza.name%></h2>
+                                    <span class="py-1 px-4 rounded-full uppercase text-lg size"><%=pizza.size%></span>
+                                    <div class="flex items-center justify-around mt-6">
+                                        <span class="font-bold text-lg"><%=pizza.price%>/-</span>
+                                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                                            <span>+</span>
+                                            <span class="ml-4">Add</span>
+                                        </button>            
+                                    </div>
+                                </div>
+                        </div>
+                    <%})%>
+                </div>
+        </div>
+    
