@@ -5,7 +5,7 @@ const path=require('path');
 const Config = require('./app/http/config/config');
 const session=require('express-session');
 const flash=require('express-flash');
-const MongoStore=require('connect-mongo')(session)
+const MongoStore=require('connect-mongo')
 const mongoose=require('mongoose');
 require('dotenv').config();
 const config = new Config();
@@ -24,16 +24,23 @@ connection.once('open', () => {
 const app = express();
 const PORT=process.env.PORT||3000;
 //session store
-let Store = new MongoStore({
-    mongooseConnection:connection,
-    collection:'sessions'
-})
 //Session Config
 app.use(session({
     secret:process.env.COOKIE_SECRET,
-    store: Store,
     resave:false,
     saveUninitialized:false,
+    store: MongoStore.create({
+        mongoUrl: process.env.MONGO_URI,
+        client: connection.getClient(),
+        collectionName: 'sessions',
+        dbName: 'wrap',
+        stringify: false,
+        mongoOptions: {
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+        },
+      }),
+    
     cookie:{maxAge:1000*60*60*24}
 }))
 
